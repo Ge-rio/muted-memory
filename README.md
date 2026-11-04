@@ -60,6 +60,14 @@ The tests cover explicit and vague promises, on-time return, accepted excuse, an
 
 [experiments/report.md](experiments/report.md) — per-turn and per-script tables, Fisher p-values, the disclosed unit choice, and what would falsify the claim.
 
+## Cost
+
+Marginal API cost for the reported run: **~4–5 CNY** (720 chat calls, DeepSeek Flash).
+
+Out-of-pocket for the whole project (a month of daily chat plus all experiments and failed reruns): **~61 CNY**.
+
+Local components — embedding model, 1.5B/7B models, Whisper, TTS — run on the same machine at no API cost. The 61 CNY figure is marginal cash cost, not the cost of hardware, electricity, or labor.
+
 ## Quickstart
 
 ```bash
