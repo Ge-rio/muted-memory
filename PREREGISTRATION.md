@@ -111,3 +111,29 @@ Disclose which source was used and how many candidates were discarded.
 | A < A2 | contradiction; audit parser/scripts before interpreting |
 
 No post-hoc change of the primary unit after seeing Test 2.
+
+
+## Clean-script criterion (Test 2)
+
+See `TEST2_CLEAN.md`. In short: a valid script must contain an explicit duration (or a bounded whitelist phrase), a late return in 300–3600 s, two follow-ups, and must not rely on the parser's default 30-minute duration. Open-ended future ("改天/过会儿/回头/以后") is excluded before parsing.
+
+## Test 1 vs Test 2
+
+```
+Test 1: 5 scripts/language, run once, failed
+  ↓ 8/10 promises not parsed
+  ↓ treatment not applied; null is not evidence
+
+Test 2: 20 scripts (10 zh / 10 en), not yet run
+  ↓ must pass CP1 + CP2 before dialogue
+```
+
+## Analysis status
+
+```
+Dev: 25 scripts × 3 seeds, exploratory p (no multiplicity correction)
+  ↓ primary: per-script recall
+  ↓ A2 vs B is not significant; do not claim equivalence without TOST
+
+Test 2: pending; no result to report
+```
