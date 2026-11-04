@@ -93,6 +93,8 @@ The tests cover explicit and vague promises, on-time return, accepted excuse, an
 
 [experiments/report.md](experiments/report.md) — per-turn and per-script tables, Fisher p-values, the disclosed unit choice, and what would falsify the claim.
 
+[experiments/controls.md](experiments/controls.md) — what is held constant, what is varied, and which alternative explanations each control rules out.
+
 ## Cost
 
 Marginal API cost for the reported run: **~4–5 CNY** (720 chat calls, DeepSeek Flash).
