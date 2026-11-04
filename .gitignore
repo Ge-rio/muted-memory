@@ -1,0 +1,4 @@
+﻿__pycache__/
+*.pyc
+.env
+results/transcripts_*.jsonl
