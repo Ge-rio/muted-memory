@@ -79,3 +79,13 @@ Your absolute numbers will differ: the public persona is generic.
 ## Cost
 
 A 20-script × 4-condition × 3-seed run is ~720 chat calls. At the time of writing this was a few CNY on DeepSeek Flash.
+
+
+## 7. English replication
+
+```bash
+python code/cus_ab_en.py --limit 20 --groups A,A2,A3,B --tag seed1
+python code/analyze_en.py
+```
+
+The English scripts and persona are in `data/scripts_en.jsonl` and `data/persona_en.txt`.

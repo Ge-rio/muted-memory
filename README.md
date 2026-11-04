@@ -21,6 +21,19 @@ A small, reproducible study of why external state machines for AI companions can
 
 The inhibited state machine reproduces the "no benefit from a state machine" null result. The difference appears only when expression is permitted.
 
+### English replication
+
+Same protocol, English scripts/persona/judge (`data/scripts_en.jsonl`, `code/cus_ab_en.py`):
+
+| Condition | Per-script recall (n=60) |
+|---|---|
+| A strong wake | **91.7%** |
+| A3 natural | 58.3% |
+| A2 inhibited | 28.3% |
+| B context only | 23.3% |
+
+`A vs A2` and `A vs B`: p < 0.001. The mechanism survives translation; the absolute level is higher in English (A: 91.7% vs 58.3% in Chinese), while the inhibited condition still collapses to the context-only level. Details: [experiments/english.md](experiments/english.md).
+
 ![result](results/cus_chart_final.png)
 
 ## Why this matters
