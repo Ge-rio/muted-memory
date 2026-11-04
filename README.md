@@ -27,6 +27,39 @@ The inhibited state machine reproduces the "no benefit from a state machine" nul
 
 Most memory work asks: *can the agent retrieve the fact?* This study asks: *is the agent allowed to say it?* If the persona contains an inhibition ("don't bring it up", "don't act up", "stay calm"), an active memory can be invisible from the outside. Evaluation that only looks at output will mislabel **muted memory** as **missing memory**.
 
+## In a real deployment
+
+The experiment isolates one line. In the deployed companion, the contract hint changed from:
+
+```text
+【轻不满】……心里不太舒服，嘴上别发作
+```
+
+to:
+
+```text
+【轻不满】……心里不太舒服；可以自然提一句，别报时，也别闹
+```
+
+Same persona, same length budget — only the permission changes. See [docs/production_change.md](docs/production_change.md).
+
+## Tests
+
+```bash
+python -m pytest code/test_contract.py -q
+# 5 passed
+```
+
+The tests cover explicit and vague promises, on-time return, accepted excuse, and the inhibiting hint used as condition A2.
+
+## Quickstart
+
+[docs/quickstart.md](docs/quickstart.md) — key setup, offline tests, a 3-script demo, full 3-seed run.
+
+## Experiment report
+
+[experiments/report.md](experiments/report.md) — per-turn and per-script tables, Fisher p-values, the disclosed unit choice, and what would falsify the claim.
+
 ## Quickstart
 
 ```bash
@@ -64,7 +97,8 @@ python code/cus_analyze.py --tags seed1
 code/        experiment, contract module, analysis
 data/        20 scripts, generic persona, anonymized transcripts (3 seeds)
 results/     summary CSV, chart, full report
-docs/        method notes
+experiments/ per-turn/per-script tables, p-values, unit choice
+docs/        method notes, quickstart, production change
 paper/       intro draft
 ```
 
