@@ -33,3 +33,29 @@ The preregistered gate is treatment rate ≥ 0.95. v2 is at **0.64**, so it does
 - The fallback model used here is an API model for iteration speed. A local Qwen 2.5 7B gives the same shape but ~10 s/call on CPU; a full 100-sentence pass is ~15 min.
 - The parser set is the dev set for the parser; the dialogue test set remains spent and untouched.
 - Next: more event-promise examples and a second-pass check, or a grammar-constrained local model.
+
+
+## v3: two-stage parser (role check, then duration)
+
+| Parser | Precision | Recall | F1 | Treatment |
+|---|---|---|---|---|
+| regex only | 1.00 | 0.30 | 0.46 | 0.30 |
+| hybrid v2 | 0.97 | 0.64 | 0.77 | 0.64 |
+| **two-stage v3** | **0.93** | **1.00** | **0.96** | **1.00** |
+
+Stage 1 alone (YES/NO):
+
+```
+DeepSeek Flash: P=0.94 R=0.98
+Qwen 2.5 1.5B: P=0.71 R=0.90
+```
+
+The role-check fixes the English imperative failures ("Wait till I wake up"). The cost is four false positives, all present-state statements rather than promises:
+
+```
+我在吃饭 / 我去洗澡了 / 你忙你的 / I'm eating.
+```
+
+Gate: precision ≥ 0.90, recall ≥ 0.85, treatment ≥ 0.95 — **passed (0.93 / 1.00 / 1.00)**.
+
+Caveat: stage 1 needs a model strong enough for the role distinction; the 1.5B local model fails precision (0.71). The two-stage run used an API model for iteration speed.
