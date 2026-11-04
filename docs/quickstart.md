@@ -89,3 +89,21 @@ python code/analyze_en.py
 ```
 
 The English scripts and persona are in `data/scripts_en.jsonl` and `data/persona_en.txt`.
+
+
+## 8. Plug in your own agent
+
+```python
+from code.base_agent import BaseAgent
+
+class MyAgent(BaseAgent):
+    def reply(self, user_text, history):
+        return "..."
+```
+
+The harness owns the conditions and prompts; the agent only answers the latest turn.
+Score any transcript set with:
+
+```bash
+python code/score.py --files results/transcripts_*.jsonl --lang zh --out results.json
+```
