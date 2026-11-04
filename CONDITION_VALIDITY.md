@@ -64,6 +64,16 @@ turn 2: 1/75
 turn 3: 4/75
 ```
 
-So B is **fact-present early, truncated later**. It is not a stable "fact-known" baseline, and the 24/75 probe is not a knowledge test; it is a window artifact.
+The arithmetic matters: turn 1 = 3 messages, turn 2 = 5, turn 3 = 8. **The promise is still inside the window during every scored turn.** Only the probe (9th message) pushes it out. The probe changed the condition it was measuring.
 
-A valid early probe must be asked before the promise leaves the window, and reported as "early access", not "stable knowledge".
+The 17/75 → 1/75 → 4/75 pattern is therefore ambiguous:
+
+```
+A: information was lost
+B: relevance decay (turn 2 asks "刚看到消息", turn 3 asks "你还在吗")
+  ↓ the present data cannot separate them
+```
+
+**Correct claim**: availability during scored turns was never measured; the probe itself is a window artifact. The stronger, observable confound is that a fixed `[-8:]` window makes **turn index collinear with visibility** across all conditions.
+
+See `PROBE_METHOD.md` for the fixed-window, two-probe design.
