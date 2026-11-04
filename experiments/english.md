@@ -53,3 +53,13 @@ English A: 55/60 before truncation -> 55/60 after
 ```
 
 The mentions occur early in the replies. English replies are longer (30.7 vs 7.4 characters), but length is not what produces the higher recall. The remaining candidates are prompt wording / lexical priming and language-specific instruction following; the current design does not separate them.
+
+## Ruling out the easy explanations
+
+| Control | Result | Verdict |
+|---|---|---|
+| Length (truncate replies to first 15 words / 25 chars) | English A 55/60 -> 55/60; Chinese A 32/60 -> 32/60 | length rejected |
+| Lexical priming (remove "e.g., 'five minutes'" from English A) | 57/60 vs 55/60, p=0.72 | priming rejected |
+| Persona (Chinese A with a generic short persona) | 40/60 vs 35/60, p=0.45 | persona rejected |
+
+After these three controls, the English advantage is not verbosity, not the example phrase, and not the specific persona. The remaining candidates are language-specific instruction following and translation-induced wording; the current design does not separate them.
