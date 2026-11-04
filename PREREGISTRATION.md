@@ -78,3 +78,36 @@ If A vs A2 is not significant on the test set, the "expression inhibition" accou
 ## Deviations
 
 Any change after freezing (scripts, prompts, metrics, seeds) is recorded in `DEVIATIONS.md` with date and reason.
+
+
+## Parser freeze (before Test 2)
+
+```
+version: v3.1 (regex + two-stage role check + dual-pass)
+sha256: D6995630E3E97420B43C9E417F10343B2B73F053BB515186979CC78AEAE7002
+frozen_at: 2026-11-05
+```
+
+The parser must not be modified after this point. Test-2 scripts that fail the treatment gate are excluded and logged; the parser is not tuned to them.
+
+## Test 2 data sourcing
+
+```
+source: public dialogue snippets / another model / author-written
+  ↓ author only keeps or discards; no rewriting
+  ↓ remove names, IDs, locations, private content
+  ↓ do not republish source text; publish rewritten scripts only
+```
+
+Disclose which source was used and how many candidates were discarded.
+
+## Decision rules (pre-registered)
+
+| Test-2 result | Interpretation |
+|---|---|
+| A > A2 significant, A2 ≤ B | supports the account |
+| direction consistent, p ≥ 0.05 | inconclusive (underpowered), not a refutation |
+| A ≈ A2, A2 ≈ B | weakens H2; report as such |
+| A < A2 | contradiction; audit parser/scripts before interpreting |
+
+No post-hoc change of the primary unit after seeing Test 2.
