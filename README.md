@@ -115,6 +115,16 @@ python code/cus_analyze.py --tags seed1
 - The public persona is generic; absolute numbers will differ from the reported run.
 - No human user study.
 
+
+
+## Seeking feedback
+
+Open an issue using the **Feedback / critique** template. Three questions matter most:
+
+1. Is A2 vs B a fair control, or does it conflate "no memory" with "no permission"?
+2. Is per-script binary recall defensible as a primary unit, given it was chosen after per-turn results?
+3. Does the conclusion overclaim beyond 20 scripts / one model / one persona?
+
 ## Layout
 
 ```

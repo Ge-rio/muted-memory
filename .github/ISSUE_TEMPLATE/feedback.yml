@@ -1,0 +1,38 @@
+name: Feedback / critique
+description: Point out a confound, a statistical issue, or an overclaim
+title: "[Feedback] "
+labels: ["feedback"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for looking. This is a pilot study (20 scripts × 4 conditions × 3 seeds).
+        Harsh criticism is welcome; "this is wrong because X" is more useful than "interesting".
+
+        Repo: https://github.com/Ge-rio/muted-memory
+        Report: experiments/report.md
+  - type: textarea
+    id: issue
+    attributes:
+      label: What is the problem?
+      description: A confound, a statistical issue, a missing control, or an overclaim.
+      placeholder: "A2 vs B may conflate ..."
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: What would fix it?
+      description: Optional. A control, a metric, a rewording, or a replication.
+    validations:
+      required: false
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      options:
+        - "blocks the claim"
+        - "weakens the claim"
+        - "presentation only"
+    validations:
+      required: true
