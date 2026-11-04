@@ -103,6 +103,8 @@ The tests cover explicit and vague promises, on-time return, accepted excuse, an
 
 [experiments/hybrid_parser.md](experiments/hybrid_parser.md) — hybrid parser v2: precision 0.97, recall 0.64; below the 0.95 treatment gate, so no new dialogue test was run.
 
+[docs/applications.md](docs/applications.md) — expected application directions, explicitly marked as design hypotheses.
+
 [PREREGISTRATION.md](PREREGISTRATION.md) — the frozen plan for the 40-script diagnostic suite; [data/SCRIPT_SCHEMA.md](data/SCRIPT_SCHEMA.md) — the script format.
 
 ## Cost
