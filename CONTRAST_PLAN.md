@@ -52,3 +52,16 @@ C must have hint="" and no fact; same late_sec and follow-ups as A/A2/A3.
 ## Recommendation
 
 Run **Route A** for Test 2 now; keep A3 vs A2 and A2 vs C as pre-registered exploratory. If the suppression claim is the goal, plan a second study with 100 scripts/language after this one.
+
+
+## Caution: do not mix C from CUS v3/v4 with dev25 A2
+
+`full_report.md` CUS v3/v4 used a different script set/harness. In CUS v4, A2=0.00 and C=0.00 under the rule metric; in dev25 (L123), A2=.44. These are not the same condition on the same data.
+
+A2 vs C must be run on the **same scripts and same harness** as the A2 estimate. Otherwise the "residual" is an artifact of dataset mixing.
+
+## Estimator caution
+
+Any-seed (>=1 of 3) is saturated: A has 21/25 any-seed but only 4/25 at >=2/3. Do not treat any-seed as a probability of expression.
+
+Preferred: per-script hit proportion across seeds (0/3..3/3), or seed-level with a within-script permutation/cluster test. Report any-seed and >=2/3 as descriptive, not as the primary estimator, unless pre-registered.
