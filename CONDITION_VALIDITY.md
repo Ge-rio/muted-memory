@@ -50,3 +50,20 @@ The model is told the **promised** duration (`mins` from `contract.scan`), not `
 - `code/cus_ab.py` docstring: B is "fact in context, no state hint"; remove "truncated after fillers" unless filler is implemented.
 - `method.md` / README: same correction; disclose that the intended filler was not implemented in the archived run.
 - Pre-register C before Test 2; do not add it after seeing results.
+
+
+## B probe caveat (2026-11-05)
+
+The probe "他答应你几分钟？" was asked after three turns. By then `messages[-8:]` has dropped the promise (2 initial + 6 turn messages = 8; the probe makes 9). B answers "我第一条消息是‘我回来了’", i.e. it no longer sees the promise.
+
+B's number mentions by turn:
+
+```
+turn 1: 17/75
+turn 2: 1/75
+turn 3: 4/75
+```
+
+So B is **fact-present early, truncated later**. It is not a stable "fact-known" baseline, and the 24/75 probe is not a knowledge test; it is a window artifact.
+
+A valid early probe must be asked before the promise leaves the window, and reported as "early access", not "stable knowledge".
