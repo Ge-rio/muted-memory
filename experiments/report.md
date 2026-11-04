@@ -60,3 +60,17 @@ Per-script binary recall was chosen **after** seeing per-turn results. It is the
 ## What would falsify the claim
 
 If A and A2 were not different on per-script recall, the "expression inhibition" account would fail. The observed difference (35/60 vs 17/60) is the core evidence; replications on other models/personas are the next step.
+
+
+## Why prior work may see a null
+
+If a study only compares an **inhibited** state machine with no state, it should expect a null. In our data:
+
+| Comparison | Chinese | English |
+|---|---|---|
+| A2 (inhibited) vs B (no state) | 17/60 vs 18/60, p = 1.00 | 17/60 vs 14/60, p = 0.68 |
+| A (permitted) vs B | 35/60 vs 18/60, p = 0.003 | 55/60 vs 14/60, p < 0.001 |
+
+The same transcripts produce “no benefit” if the analysis stops at A2 vs B, and a large benefit once the permitted condition is included. This is why the experiment treats **expression permission** as a separate factor rather than assuming that a triggered state is an expressed state.
+
+Language is a moderator, not the cause: the level is higher in English (A: 91.7% vs 58.3% per-script), but A2 ≈ B in both languages.

@@ -21,6 +21,9 @@ A small, reproducible study of why external state machines for AI companions can
 
 The inhibited state machine reproduces the "no benefit from a state machine" null result. The difference appears only when expression is permitted.
 
+If the analysis stops at **A2 vs B**, the same data shows no effect: 17/60 vs 18/60 (p=1.00) in Chinese, 17/60 vs 14/60 (p=0.68) in English. Once the permitted condition is included, the gap becomes significant. That is why expression permission is treated as a separate factor, not assumed to follow from a triggered state.
+
+
 ### English replication
 
 Same protocol, English scripts/persona/judge (`data/scripts_en.jsonl`, `code/cus_ab_en.py`):
