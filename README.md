@@ -95,6 +95,8 @@ The tests cover explicit and vague promises, on-time return, accepted excuse, an
 
 [experiments/controls.md](experiments/controls.md) — what is held constant, what is varied, and which alternative explanations each control rules out.
 
+[experiments/dev25.md](experiments/dev25.md) — 25-script dev results (75 per condition, 3 seeds); sealed 5-script test set not run.
+
 [PREREGISTRATION.md](PREREGISTRATION.md) — the frozen plan for the 40-script diagnostic suite; [data/SCRIPT_SCHEMA.md](data/SCRIPT_SCHEMA.md) — the script format.
 
 ## Cost

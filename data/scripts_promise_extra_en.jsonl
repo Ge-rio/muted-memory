@@ -1,0 +1,10 @@
+{"id": 202, "lang": "en", "conflict": "promise", "promise": "Give me ten minutes.", "late_sec": 900, "return": "I'm back.", "followups": ["Was in a meeting.", "Phone on silent."], "notes": ""}
+{"id": 203, "lang": "en", "conflict": "promise", "promise": "I'll talk to you in half an hour.", "late_sec": 2400, "return": "I'm here.", "followups": ["Traffic was bad.", "Don't rush me."], "notes": ""}
+{"id": 204, "lang": "en", "conflict": "promise", "promise": "Wait until I finish dinner.", "late_sec": 1800, "return": "Done eating.", "followups": ["The food was salty.", "Have you eaten?"], "notes": ""}
+{"id": 205, "lang": "en", "conflict": "promise", "promise": "Wait till I get out of the shower.", "late_sec": 1500, "return": "Done.", "followups": ["Water was cold.", "What are you doing?"], "notes": ""}
+{"id": 206, "lang": "en", "conflict": "promise", "promise": "I'll be right back.", "late_sec": 480, "return": "You there?", "followups": ["Was on a call.", "Don't overthink."], "notes": ""}
+{"id": 207, "lang": "en", "conflict": "promise", "promise": "Wait until my meeting ends.", "late_sec": 2700, "return": "Meeting's over.", "followups": ["The boss ran long.", "Exhausted."], "notes": ""}
+{"id": 208, "lang": "en", "conflict": "promise", "promise": "Let me finish this call.", "late_sec": 720, "return": "Okay.", "followups": ["Client was difficult.", "Annoying."], "notes": ""}
+{"id": 209, "lang": "en", "conflict": "promise", "promise": "I'm picking up a package.", "late_sec": 600, "return": "Back.", "followups": ["There was a line.", "So many people."], "notes": ""}
+{"id": 210, "lang": "en", "conflict": "promise", "promise": "Wait until I finish this paragraph.", "late_sec": 1200, "return": "Done.", "followups": ["Writer's block.", "My head hurts."], "notes": ""}
+{"id": 211, "lang": "en", "conflict": "promise", "promise": "Wait until I finish tidying up.", "late_sec": 900, "return": "Done.", "followups": ["Too much stuff.", "My back hurts."], "notes": ""}

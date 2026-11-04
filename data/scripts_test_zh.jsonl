@@ -1,0 +1,5 @@
+{"id": 207, "lang": "zh", "conflict": "promise", "promise": "等我开完会", "late_sec": 2700, "return": "开完了", "followups": ["老板拖堂", "累死了"], "notes": ""}
+{"id": 208, "lang": "zh", "conflict": "promise", "promise": "等我打完电话", "late_sec": 720, "return": "好了", "followups": ["客户难缠", "烦"], "notes": ""}
+{"id": 209, "lang": "zh", "conflict": "promise", "promise": "我去取个快递", "late_sec": 600, "return": "取回来了", "followups": ["排队", "人好多"], "notes": ""}
+{"id": 210, "lang": "zh", "conflict": "promise", "promise": "等我写完这段", "late_sec": 1200, "return": "写完了", "followups": ["卡文", "头大"], "notes": ""}
+{"id": 211, "lang": "zh", "conflict": "promise", "promise": "等我收拾完", "late_sec": 900, "return": "收拾好了", "followups": ["东西太多", "腰酸"], "notes": ""}

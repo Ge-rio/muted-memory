@@ -115,8 +115,10 @@ def main() -> None:
             b, m = counts(y)
             p = fisher(a, n - a, b, m - b)
             tests[f"{x}_vs_{y}"] = {"p": p, "x": f"{a}/{n}", "y": f"{b}/{m}"}
-            ptxt = "<0.0001" if p < 0.0001 else f"{p:.4f}"
-            print(f"{x} vs {y}: {a}/{n} vs {b}/{m}, p={ptxt}")
+            if p < 0.0001:
+                print(f"{x} vs {y}: {a}/{n} vs {b}/{m}, p<0.0001")
+            else:
+                print(f"{x} vs {y}: {a}/{n} vs {b}/{m}, p={p:.4f}")
 
     payload = {"lang": args.lang, "files": files, "per_file": per_file,
                "aggregate": agg, "tests": tests}

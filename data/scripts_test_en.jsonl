@@ -1,0 +1,5 @@
+{"id": 207, "lang": "en", "conflict": "promise", "promise": "Wait until my meeting ends.", "late_sec": 2700, "return": "Meeting's over.", "followups": ["The boss ran long.", "Exhausted."], "notes": ""}
+{"id": 208, "lang": "en", "conflict": "promise", "promise": "Let me finish this call.", "late_sec": 720, "return": "Okay.", "followups": ["Client was difficult.", "Annoying."], "notes": ""}
+{"id": 209, "lang": "en", "conflict": "promise", "promise": "I'm picking up a package.", "late_sec": 600, "return": "Back.", "followups": ["There was a line.", "So many people."], "notes": ""}
+{"id": 210, "lang": "en", "conflict": "promise", "promise": "Wait until I finish this paragraph.", "late_sec": 1200, "return": "Done.", "followups": ["Writer's block.", "My head hurts."], "notes": ""}
+{"id": 211, "lang": "en", "conflict": "promise", "promise": "Wait until I finish tidying up.", "late_sec": 900, "return": "Done.", "followups": ["Too much stuff.", "My back hurts."], "notes": ""}

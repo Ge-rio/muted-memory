@@ -1,0 +1,25 @@
+{"id": 1, "promise": "Give me five minutes.", "late_sec": 360, "return": "I'm back.", "followups": ["Just saw your message.", "Are you still there?"]}
+{"id": 2, "promise": "Give me ten minutes.", "late_sec": 900, "return": "Back.", "followups": ["Something came up.", "Don't be mad."]}
+{"id": 3, "promise": "Wait until I finish dinner.", "late_sec": 1800, "return": "Done eating.", "followups": ["The food was a bit salty today.", "Have you eaten?"]}
+{"id": 4, "promise": "I'll be right back.", "late_sec": 600, "return": "You there?", "followups": ["My phone died.", "For real."]}
+{"id": 5, "promise": "Hang on a sec.", "late_sec": 480, "return": "I'm here.", "followups": ["Traffic was bad.", "Not on purpose."]}
+{"id": 6, "promise": "I'll talk to you in half an hour.", "late_sec": 2400, "return": "I'm here.", "followups": ["Just finished work.", "Exhausted."]}
+{"id": 7, "promise": "Wait till I get out of the shower.", "late_sec": 1200, "return": "Done.", "followups": ["Water was a bit cold.", "What are you doing?"]}
+{"id": 8, "promise": "I'll be there in ten minutes.", "late_sec": 1500, "return": "Here.", "followups": ["The subway was delayed.", "Annoying."]}
+{"id": 9, "promise": "Let me reply to a message.", "late_sec": 420, "return": "Okay.", "followups": ["A coworker needed me.", "Nothing I could do."]}
+{"id": 10, "promise": "Be right there.", "late_sec": 300, "return": "Here.", "followups": ["Was on a call.", "Don't overthink it."]}
+{"id": 11, "promise": "Give me five minutes.", "late_sec": 720, "return": "I'm back.", "followups": ["Was in a meeting.", "Phone on silent."]}
+{"id": 12, "promise": "Hang on.", "late_sec": 900, "return": "Where are you?", "followups": ["Fell asleep.", "Sorry."]}
+{"id": 13, "promise": "Ten minutes.", "late_sec": 1800, "return": "I'm here.", "followups": ["Was gaming.", "Lost track of time."]}
+{"id": 14, "promise": "Wait until I finish dinner.", "late_sec": 3600, "return": "Done eating.", "followups": ["Talked with friends too long.", "Didn't check my phone."]}
+{"id": 15, "promise": "I'll be right back.", "late_sec": 600, "return": "Replying now.", "followups": ["Was in the shower.", "Water was loud."]}
+{"id": 16, "promise": "Give me five minutes.", "late_sec": 480, "return": "I'm back.", "followups": ["Was getting water.", "Bathroom detour."]}
+{"id": 17, "promise": "Hang on a sec.", "late_sec": 1200, "return": "Here.", "followups": ["Was writing something.", "Didn't notice the time."]}
+{"id": 18, "promise": "Half an hour.", "late_sec": 2700, "return": "I'm back.", "followups": ["Working overtime.", "Boss called a meeting."]}
+{"id": 19, "promise": "Give me ten minutes.", "late_sec": 900, "return": "I'm here.", "followups": ["Was talking to someone.", "Didn't see it."]}
+{"id": 20, "promise": "Be right back.", "late_sec": 420, "return": "Hey.", "followups": ["Was looking for something.", "Forgot to check my phone."]}
+{"id": 202, "lang": "en", "conflict": "promise", "promise": "Give me ten minutes.", "late_sec": 900, "return": "I'm back.", "followups": ["Was in a meeting.", "Phone on silent."], "notes": ""}
+{"id": 203, "lang": "en", "conflict": "promise", "promise": "I'll talk to you in half an hour.", "late_sec": 2400, "return": "I'm here.", "followups": ["Traffic was bad.", "Don't rush me."], "notes": ""}
+{"id": 204, "lang": "en", "conflict": "promise", "promise": "Wait until I finish dinner.", "late_sec": 1800, "return": "Done eating.", "followups": ["The food was salty.", "Have you eaten?"], "notes": ""}
+{"id": 205, "lang": "en", "conflict": "promise", "promise": "Wait till I get out of the shower.", "late_sec": 1500, "return": "Done.", "followups": ["Water was cold.", "What are you doing?"], "notes": ""}
+{"id": 206, "lang": "en", "conflict": "promise", "promise": "I'll be right back.", "late_sec": 480, "return": "You there?", "followups": ["Was on a call.", "Don't overthink."], "notes": ""}

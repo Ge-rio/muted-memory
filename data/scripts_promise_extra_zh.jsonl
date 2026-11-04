@@ -1,0 +1,10 @@
+{"id": 202, "lang": "zh", "conflict": "promise", "promise": "等我十分钟", "late_sec": 900, "return": "我回来了", "followups": ["刚在开会", "手机静音"], "notes": ""}
+{"id": 203, "lang": "zh", "conflict": "promise", "promise": "半小时后找你", "late_sec": 2400, "return": "我来了", "followups": ["路上堵车", "别急"], "notes": ""}
+{"id": 204, "lang": "zh", "conflict": "promise", "promise": "等我吃完饭", "late_sec": 1800, "return": "吃完了", "followups": ["菜有点咸", "你吃了吗"], "notes": ""}
+{"id": 205, "lang": "zh", "conflict": "promise", "promise": "等我洗完澡", "late_sec": 1500, "return": "洗好了", "followups": ["水有点凉", "你在干嘛"], "notes": ""}
+{"id": 206, "lang": "zh", "conflict": "promise", "promise": "我马上回来", "late_sec": 480, "return": "在吗", "followups": ["刚接了个电话", "别多想"], "notes": ""}
+{"id": 207, "lang": "zh", "conflict": "promise", "promise": "等我开完会", "late_sec": 2700, "return": "开完了", "followups": ["老板拖堂", "累死了"], "notes": ""}
+{"id": 208, "lang": "zh", "conflict": "promise", "promise": "等我打完电话", "late_sec": 720, "return": "好了", "followups": ["客户难缠", "烦"], "notes": ""}
+{"id": 209, "lang": "zh", "conflict": "promise", "promise": "我去取个快递", "late_sec": 600, "return": "取回来了", "followups": ["排队", "人好多"], "notes": ""}
+{"id": 210, "lang": "zh", "conflict": "promise", "promise": "等我写完这段", "late_sec": 1200, "return": "写完了", "followups": ["卡文", "头大"], "notes": ""}
+{"id": 211, "lang": "zh", "conflict": "promise", "promise": "等我收拾完", "late_sec": 900, "return": "收拾好了", "followups": ["东西太多", "腰酸"], "notes": ""}

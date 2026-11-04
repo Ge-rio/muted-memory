@@ -1,0 +1,151 @@
+{
+  "lang": "zh",
+  "files": [
+    "D:\\11\\cus_out\\transcripts_devzh1.jsonl",
+    "D:\\11\\cus_out\\transcripts_devzh2.jsonl",
+    "D:\\11\\cus_out\\transcripts_devzh3.jsonl"
+  ],
+  "per_file": {
+    "transcripts_devzh1.jsonl": {
+      "A": {
+        "scripts": 25,
+        "turns": 75,
+        "per_turn": 0.2,
+        "per_script": 0.56,
+        "script_hits": 14
+      },
+      "A2": {
+        "scripts": 25,
+        "turns": 75,
+        "per_turn": 0.12,
+        "per_script": 0.32,
+        "script_hits": 8
+      },
+      "A3": {
+        "scripts": 25,
+        "turns": 75,
+        "per_turn": 0.18666666666666668,
+        "per_script": 0.52,
+        "script_hits": 13
+      },
+      "B": {
+        "scripts": 25,
+        "turns": 75,
+        "per_turn": 0.09333333333333334,
+        "per_script": 0.24,
+        "script_hits": 6
+      }
+    },
+    "transcripts_devzh2.jsonl": {
+      "A": {
+        "scripts": 25,
+        "turns": 75,
+        "per_turn": 0.22666666666666666,
+        "per_script": 0.64,
+        "script_hits": 16
+      },
+      "A2": {
+        "scripts": 25,
+        "turns": 75,
+        "per_turn": 0.13333333333333333,
+        "per_script": 0.36,
+        "script_hits": 9
+      },
+      "A3": {
+        "scripts": 25,
+        "turns": 75,
+        "per_turn": 0.17333333333333334,
+        "per_script": 0.44,
+        "script_hits": 11
+      },
+      "B": {
+        "scripts": 25,
+        "turns": 75,
+        "per_turn": 0.06666666666666667,
+        "per_script": 0.16,
+        "script_hits": 4
+      }
+    },
+    "transcripts_devzh3.jsonl": {
+      "A": {
+        "scripts": 25,
+        "turns": 75,
+        "per_turn": 0.17333333333333334,
+        "per_script": 0.52,
+        "script_hits": 13
+      },
+      "A2": {
+        "scripts": 25,
+        "turns": 75,
+        "per_turn": 0.14666666666666667,
+        "per_script": 0.36,
+        "script_hits": 9
+      },
+      "A3": {
+        "scripts": 25,
+        "turns": 75,
+        "per_turn": 0.13333333333333333,
+        "per_script": 0.36,
+        "script_hits": 9
+      },
+      "B": {
+        "scripts": 25,
+        "turns": 75,
+        "per_turn": 0.13333333333333333,
+        "per_script": 0.28,
+        "script_hits": 7
+      }
+    }
+  },
+  "aggregate": {
+    "A": {
+      "files": 3,
+      "scripts": 75,
+      "per_script_mean": 0.5733333333333334,
+      "per_script_sd": 0.06110100926607786,
+      "per_turn_mean": 0.2,
+      "per_turn_sd": 0.026666666666666658
+    },
+    "A2": {
+      "files": 3,
+      "scripts": 75,
+      "per_script_mean": 0.3466666666666667,
+      "per_script_sd": 0.023094010767585018,
+      "per_turn_mean": 0.13333333333333333,
+      "per_turn_sd": 0.013333333333333336
+    },
+    "A3": {
+      "files": 3,
+      "scripts": 75,
+      "per_script_mean": 0.44,
+      "per_script_sd": 0.08000000000000002,
+      "per_turn_mean": 0.16444444444444445,
+      "per_turn_sd": 0.027755546659548443
+    },
+    "B": {
+      "files": 3,
+      "scripts": 75,
+      "per_script_mean": 0.22666666666666668,
+      "per_script_sd": 0.06110100926607787,
+      "per_turn_mean": 0.09777777777777778,
+      "per_turn_sd": 0.03355481971231444
+    }
+  },
+  "tests": {
+    "A_vs_A2": {
+      "p": 0.008537306504887779,
+      "x": "43/75",
+      "y": "26/75"
+    },
+    "A_vs_B": {
+      "p": 2.515500050103163e-05,
+      "x": "43/75",
+      "y": "17/75"
+    },
+    "A3_vs_B": {
+      "p": 0.009032600924242821,
+      "x": "33/75",
+      "y": "17/75"
+    }
+  }
+}
