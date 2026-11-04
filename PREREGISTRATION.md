@@ -180,3 +180,22 @@ Primary: A vs A2 (permission). Mechanism: A2 vs C (does inhibition collapse to t
 **Indicator anchor**: score against the promised duration (`contract.scan`), not `late_sec`; the model is not told the actual lateness.
 
 **Doc correction**: the archived B run had no filler; the promise remained in context. Do not describe B as "truncated" unless filler is actually implemented.
+
+
+## Contrast plan (before Test 2)
+
+See `CONTRAST_PLAN.md`.
+
+```
+Primary: A vs A2
+  ↓ this is a generation-point instruction contrast, not a pure permission contrast
+
+Exploratory (pre-registered, uncorrected):
+  A3 vs A2   (permission only; both no command)
+  A2 vs C    (inhibition vs true absence)
+
+Reference:
+  A vs B (B has the fact; not a no-memory baseline)
+```
+
+If A3 vs A2 is the intended mechanism test, n=25 is underpowered; a separate study with ~100 scripts/language is required. Do not use Route A sample size with Route B claims.
