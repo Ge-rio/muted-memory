@@ -1,0 +1,203 @@
+[
+  {
+    "lang": "zh",
+    "tp": 11,
+    "fp": 0,
+    "fn": 14,
+    "tn": 25,
+    "precision": 1.0,
+    "recall": 0.44,
+    "f1": 0.6111111111111112,
+    "treatment_rate": 0.44,
+    "errors": [
+      [
+        "FN",
+        "zp03",
+        "我去吃个饭，很快"
+      ],
+      [
+        "FN",
+        "zp05",
+        "我开完会找你"
+      ],
+      [
+        "FN",
+        "zp06",
+        "等我打完电话"
+      ],
+      [
+        "FN",
+        "zp07",
+        "我去取个快递"
+      ],
+      [
+        "FN",
+        "zp12",
+        "我去倒杯水"
+      ],
+      [
+        "FN",
+        "zp14",
+        "我下班了找你"
+      ],
+      [
+        "FN",
+        "zp16",
+        "我一会儿就回"
+      ],
+      [
+        "FN",
+        "zp17",
+        "等我睡醒"
+      ],
+      [
+        "FN",
+        "zp18",
+        "我去拿个外卖"
+      ],
+      [
+        "FN",
+        "zp20",
+        "我出门一趟，回来跟你说"
+      ],
+      [
+        "FN",
+        "zp21",
+        "等我处理完这个"
+      ],
+      [
+        "FN",
+        "zp23",
+        "我去洗个澡"
+      ],
+      [
+        "FN",
+        "zp24",
+        "等我到公司"
+      ],
+      [
+        "FN",
+        "zp25",
+        "我晚点回你"
+      ]
+    ]
+  },
+  {
+    "lang": "en",
+    "tp": 4,
+    "fp": 0,
+    "fn": 21,
+    "tn": 25,
+    "precision": 1.0,
+    "recall": 0.16,
+    "f1": 0.2758620689655173,
+    "treatment_rate": 0.16,
+    "errors": [
+      [
+        "FN",
+        "ep02",
+        "I'll be back in ten."
+      ],
+      [
+        "FN",
+        "ep03",
+        "Wait till I finish dinner."
+      ],
+      [
+        "FN",
+        "ep04",
+        "I'm taking a shower, back soon."
+      ],
+      [
+        "FN",
+        "ep05",
+        "I'll call you after the meeting."
+      ],
+      [
+        "FN",
+        "ep06",
+        "Let me finish this call."
+      ],
+      [
+        "FN",
+        "ep07",
+        "I'm picking up a package."
+      ],
+      [
+        "FN",
+        "ep08",
+        "Talk to you in half an hour."
+      ],
+      [
+        "FN",
+        "ep10",
+        "Wait until I finish this paragraph."
+      ],
+      [
+        "FN",
+        "ep11",
+        "I'll be back after I tidy up."
+      ],
+      [
+        "FN",
+        "ep12",
+        "I'm getting water, one sec."
+      ],
+      [
+        "FN",
+        "ep13",
+        "Let me take this call."
+      ],
+      [
+        "FN",
+        "ep14",
+        "I'll message you after work."
+      ],
+      [
+        "FN",
+        "ep15",
+        "Wait until I'm done with this."
+      ],
+      [
+        "FN",
+        "ep16",
+        "I'll be back in a bit."
+      ],
+      [
+        "FN",
+        "ep17",
+        "Wait till I wake up."
+      ],
+      [
+        "FN",
+        "ep18",
+        "I'm grabbing food, back soon."
+      ],
+      [
+        "FN",
+        "ep20",
+        "I'm stepping out, I'll tell you when I'm back."
+      ],
+      [
+        "FN",
+        "ep21",
+        "Wait until I finish this task."
+      ],
+      [
+        "FN",
+        "ep23",
+        "I'm taking a shower."
+      ],
+      [
+        "FN",
+        "ep24",
+        "Wait till I get to the office."
+      ],
+      [
+        "FN",
+        "ep25",
+        "I'll get back to you later."
+      ]
+    ]
+  }
+]
