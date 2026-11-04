@@ -101,6 +101,8 @@ The tests cover explicit and vague promises, on-time return, accepted excuse, an
 
 [experiments/parser_eval.md](experiments/parser_eval.md) — the regex parser measured on 100 labeled sentences: precision 1.00, recall 0.44 (zh) / 0.16 (en).
 
+[experiments/hybrid_parser.md](experiments/hybrid_parser.md) — hybrid parser v2: precision 0.97, recall 0.64; below the 0.95 treatment gate, so no new dialogue test was run.
+
 [PREREGISTRATION.md](PREREGISTRATION.md) — the frozen plan for the 40-script diagnostic suite; [data/SCRIPT_SCHEMA.md](data/SCRIPT_SCHEMA.md) — the script format.
 
 ## Cost
