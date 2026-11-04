@@ -63,3 +63,6 @@ The mentions occur early in the replies. English replies are longer (30.7 vs 7.4
 | Persona (Chinese A with a generic short persona) | 40/60 vs 35/60, p=0.45 | persona rejected |
 
 After these three controls, the English advantage is not verbosity, not the example phrase, and not the specific persona. The remaining candidates are language-specific instruction following and translation-induced wording; the current design does not separate them.
+
+
+Our ablations ruled out length, priming, and persona-specific effects. The remaining variance is hypothesized to stem from either (1) intrinsic RLHF alignment differences favoring English instruction adherence, or (2) translation-induced phrasing rigidity. Disentangling these two requires a native English corpus and cross-lingual persona templates, which we leave for future work.
