@@ -23,6 +23,21 @@ A small, reproducible study of why external state machines for AI companions can
 
 The inhibited state machine reproduces the "no benefit from a state machine" null result. The difference appears only when expression is permitted.
 
+### Cross-lingual summary
+
+| Condition (n=60) | Chinese | English |
+|---|---|---|
+| A forced | 58.3% | 91.7% |
+| A3 natural | 40.0% | 58.3% |
+| A2 suppressed | 28.3% | 28.3% |
+| B no state | 30.0% | 23.3% |
+
+![bilingual](results/cus_bilingual.png)
+
+A2 lands at the same value (17/60) in both languages. With one model and translated scripts, this is consistent with suppression, not proof of language invariance — but it is the reason the paper treats **expression permission** as a separate factor rather than assuming a triggered state is an expressed state.
+
+
+
 If the analysis stops at **A2 vs B**, the same data shows no effect: 17/60 vs 18/60 (p=1.00) in Chinese, 17/60 vs 14/60 (p=0.68) in English. Once the permitted condition is included, the gap becomes significant. That is why expression permission is treated as a separate factor, not assumed to follow from a triggered state.
 
 
