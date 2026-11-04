@@ -97,6 +97,8 @@ The tests cover explicit and vague promises, on-time return, accepted excuse, an
 
 [experiments/dev25.md](experiments/dev25.md) — 25-script dev results (75 per condition, 3 seeds); sealed 5-script test set not run.
 
+[experiments/test_once.md](experiments/test_once.md) — the sealed test run failed due to parser coverage; reported as a failure, no rerun.
+
 [PREREGISTRATION.md](PREREGISTRATION.md) — the frozen plan for the 40-script diagnostic suite; [data/SCRIPT_SCHEMA.md](data/SCRIPT_SCHEMA.md) — the script format.
 
 ## Cost
