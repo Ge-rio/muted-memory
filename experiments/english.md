@@ -42,3 +42,14 @@ This weakens a purely language-specific explanation for prior null results: the 
 - Same model (DeepSeek Flash), same 20 scripts, one English persona.
 - The English scripts are translated by the author with LLM assistance; phrasing may differ in subtle ways.
 - Still a pilot-scale mechanism study, not a benchmark.
+
+## Is the English advantage just verbosity?
+
+No, at least not in this sample. Truncating every A reply to its first 15 words (English) or first 25 characters (Chinese) does not change the result:
+
+```
+Chinese A: 32/60 before truncation -> 32/60 after
+English A: 55/60 before truncation -> 55/60 after
+```
+
+The mentions occur early in the replies. English replies are longer (30.7 vs 7.4 characters), but length is not what produces the higher recall. The remaining candidates are prompt wording / lexical priming and language-specific instruction following; the current design does not separate them.
