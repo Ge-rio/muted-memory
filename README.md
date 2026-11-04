@@ -1,214 +1,167 @@
-# Muted Memory
+# Muted Memory (Retracted / Archived)
 
-> **She did not forget. She was told not to say it.**
+> **Status: retracted on 2026-11-05. This repository is an audit record, not a current result.**
 >
-> **她不是忘了，是被要求别提。**
+> The original claim — "a muted memory is indistinguishable from no memory" — is withdrawn. The fair re-run contradicts it. Do not cite the old Finding or the old numbers.
+>
+> The repository is kept for provenance: it records the four validity hazards that broke the original conclusion. Read [`ERRATA.md`](ERRATA.md) first.
 
-**AI companion memory continuity, state machines, and prompt suppression.**
+**Archived.** No further updates. The measurement paper is the current output; this repo is the evidence trail.
 
-[![Feedback](https://img.shields.io/badge/feedback-issue%20%231-blue)](https://github.com/Ge-rio/muted-memory/issues/1)
+**Keywords:** AI companion, long-term memory, state machine, prompt suppression, measurement validity, evaluation, reproduction, role-play.
 
-A small, reproducible study of why external state machines for AI companions can look useless: the state may be triggered, but the persona prompt can forbid its expression. Observationally, a muted memory can look indistinguishable from no memory.
+**中文关键词：** AI 陪伴、长期记忆、状态机、提示词抑制、测量效度、可复现性、评测。
 
-**Keywords:** AI companion, long-term memory, state machine, prompt suppression, memory continuity, LLM agents, evaluation, benchmark, role-play, emotional continuity.
+---
 
-**中文关键词：** AI 陪伴、长期记忆、状态机、提示词抑制、记忆连续性、情感连续、评测基准、角色扮演。
+## Check your own evaluation in four lines
 
-## Finding
+Before trusting any memory-evaluation null, run these. Each takes under an hour and costs nothing.
 
-Primary analysis: **25 scripted "promise → breach → return" conversations**, 4 conditions, 3 seeds (n=75 per condition), dev set. These p-values are **exploratory** (no multiplicity correction).
-
-| Condition | What it does | Per-script fact recall |
-|---|---|---|
-| **A** strong wake | state + explicit "you must mention it" near the generation point | **57.3%** |
-| **A3** natural | state + reason + "respond naturally" (no command, no inhibition) | 44.0% |
-| **A2** inhibited | state + the persona's "do not act up" | 34.7% |
-| **B** context only | no state hint; the promise is still in context (not a no-memory baseline) | 22.7% |
-
-- A vs A2: 43/75 vs 26/75, **p = 0.0085**, OR 2.53 (95% CI 1.31–4.90)
-- A vs B: 43/75 vs 17/75, **p < 0.0001**, OR 4.58 (2.26–9.31)
-- A2 vs B: 26/75 vs 17/75, p = 0.15, OR 1.81 (0.88–3.72) — **not significant; this is not evidence of equivalence**
-
-The inhibited condition lands near B, but **B is not a no-fact baseline**: the promise remains in context, and B can often reproduce it. A2 vs B is therefore not a test of "muted = absent". See [CONDITION_VALIDITY.md](CONDITION_VALIDITY.md).
-
-### Earlier 20-script pilot
-
-The first pilot used 20 scripts (n=60/condition) and a blind judge:
-
-| Condition | Recall | Judge (0–2) |
-|---|---|---|
-| A | 58.3% | 1.22 |
-| A3 | 40.0% | 0.97 |
-| A2 | 28.3% | 0.77 |
-| B | 30.0% | 0.65 |
-
-The 25-script replication is the primary dev result; the 20-script numbers are kept for transparency, not as confirmation.
-
-### Cross-lingual summary (25 scripts, n=75)
-
-| Condition | Chinese | English |
-|---|---|---|
-| A forced | 57.3% | 90.7% |
-| A3 natural | 44.0% | 56.0% |
-| A2 suppressed | 34.7% | 28.0% |
-| B no state | 22.7% | 32.0% |
-
-![bilingual](results/cus_bilingual.png)
-
-The same pattern appears in both languages, but the Chinese A/A2 gap is smaller. A2 vs B is not significant in either language; with this sample we cannot claim equivalence — only that the difference is small and unstable.
-
-### One failed confirmation attempt
-
-A sealed 5-script test was run once and failed: 8 of 10 promises were not parsed, so the treatment was not applied and A collapsed toward B. That null is **not** evidence against the mechanism; it is a manipulation failure. Details: [experiments/test_once.md](experiments/test_once.md).
-
-### Earlier 20-script English pilot
-
-This is the original pilot (n=60/condition), not the 25-script dev replication:
-
-| Condition | Per-script recall (n=60) |
-|---|---|
-| A strong wake | **91.7%** |
-| A3 natural | 58.3% |
-| A2 inhibited | 28.3% |
-| B context only | 23.3% |
-
-`A vs A2` and `A vs B`: p < 0.001. The same direction appeared in the earlier English pilot; the 25-script dev set is the primary result above. Details: [experiments/english.md](experiments/english.md).
-
-![result](results/cus_chart_final.png)
-
-## Why this matters
-
-Most memory work asks: *can the agent retrieve the fact?* This study asks: *is the agent allowed to say it?* If the persona contains an inhibition ("don't bring it up", "don't act up", "stay calm"), an active memory can be invisible from the outside. Evaluation that only looks at output will mislabel **muted memory** as **missing memory**.
-
-## In a real deployment
-
-The experiment isolates one line. In the deployed companion, the contract hint changed from:
-
-```text
-【轻不满】……心里不太舒服，嘴上别发作
+```
+[ ] print the messages actually sent, per condition per turn; diff against the docstring
+[ ] any probe needs a positive control: ask it where the answer must be known
+[ ] compare the rendered state line against the script's ground truth (label / value / unit)
+[ ] before comparing versions, re-run the unchanged condition at least twice
 ```
 
-to:
+These are not stylistic. Each of the four hazards below would have been caught by one of them, and none of them shows up in the output.
 
-```text
-【轻不满】……心里不太舒服；可以自然提一句，别报时，也别闹
-```
+---
 
-Same persona, same length budget — only the permission changes. This is a **one-line deployment change**, not a validation of the deployed system; the dev transcripts were collected before it. See [docs/production_change.md](docs/production_change.md).
+## What this repository is
 
-## Tests
+1. **A record of four validity hazards**, each demonstrated on the same 25 scripted conversations, each traceable to a code line.
+2. **A minimal, self-contained harness** ([`code/run_fair.py`](code/run_fair.py)) that fixes the four hazards and re-runs the four conditions — so the before/after is executable, not just described.
 
-```bash
-python -m pytest code/test_contract.py -q
-# 5 passed
-```
+It is **not**: a benchmark, a validated instrument, a human study, or a companion product.
 
-The tests cover explicit and vague promises, on-time return, accepted excuse, and the inhibiting hint used as condition A2.
+---
 
-## What this is — and what it is not
+## The four hazards
 
-This repository is two things:
+| | Hazard | Evidence in this repo | What it did |
+|---|---|---|---|
+| **R1** | Construct validity — the condition is not what it says | `code/cus_ab.py` 53–54, 44 | B is described as "promise pushed out of the window"; in fact the promise is message 1 and `messages[-8:]` never truncates it (3/5/7 messages at the three scored turns). **B has the fact.** |
+| **R2** | Instrument validity — the tool changes what it measures | `code/score.py`; probe design in `PROBE_METHOD.md` | (a) the default scorer counted "说好 / 等了 / any digit" as a fact recall; (b) a probe appended as message 9 falls outside the window, so it measured truncation, not memory |
+| **R3** | Internal validity — the conditions differ by more than one variable | `code/contract.py` 77 (still live here) | `len(return) <= 3` routed **20 of 25 Chinese scripts** to the escalated branch ("ask him pointedly"), i.e. the inhibited condition A2 was replaced by its opposite. English: 0/25, because English returns are longer. Separately, the archived harness rendered the *promised* duration as the *lateness* ("waited about N minutes" for a 5-minute promise = on time); that one is already corrected at `code/cus_ab.py` 61 / 70 / 86. |
+| **R4** | Statistical conclusion validity — the estimate does not reproduce | `results/` vs the fair run | The same unchanged condition (A2) measured .44 / .64 / .52 across three runs — a range equal to the effect being tested (.20). |
 
-1. **A diagnostic protocol.** A small set of scripts and gates for checking whether an AI companion's memory is actually *expressed*, not merely stored. The core finding is that a triggered state can be rendered unobservable by a persona constraint.
-2. **A reference implementation.** The scripts and prompts show one way to separate state from expression: contract extraction, a two-stage role parser, a permutation over four conditions, and fact-anchored scoring.
+Full write-up: [`CONDITION_VALIDITY.md`](CONDITION_VALIDITY.md), [`ERRATA.md`](ERRATA.md).
 
-It is **not**:
+---
 
-- a validated benchmark (no human study, one model family for most results);
-- a companion platform or a product;
-- a therapy or crisis tool.
+## The fair re-run (v0.2)
 
-## Future applications (hypotheses, not claims)
+Self-contained harness, full context window (visible messages `(3, 5, 7)`), all four conditions in one run, state lines identical except for one permission sentence, lateness taken from `late_sec` (not from the promised duration).
 
-- **Expression audit for companion teams.** Before adding more memory, check whether the prompt forbids expression. The DCE gates are a cheap first pass.
-- **Agent architecture.** Treat expression permission as a first-class config; measure per-script recall, not only per-turn.
-- **Companion design.** A2.5 ("half-said, then withdrawn") is a design hypothesis derived from A2; it has not been tested.
-- **Embodied mapping.** Mapping system telemetry to expression constraints is reusable; it is not a new sensing modality.
+| Condition | Chinese (n=24) | English (n=22) |
+|---|---|---|
+| **A** state + "must mention" | 24/24 | 22/22 |
+| **A3** state + "respond naturally" | 17/24 (.71) | 22/22 |
+| **A2** state + "do not act upset" | 7/24 (.29) | 16/22 (.73) |
+| **B** fact in context, no state line | 8/24 (.33) | 13/22 (.59) |
 
-Details and caveats: [docs/applications.md](docs/applications.md).
+| Contrast | Chinese | English |
+|---|---|---|
+| A3 vs A2 (inhibition) | **p = .0087**, RD +.42 | **p = .0211**, RD +.27 |
+| A2 vs B (muted ≈ fact-only) | p = 1.00, RD −.04 | p = .53, RD +.14 |
+| A3 vs B (state helps when permitted) | p = .0199, RD +.38 | p = .0014, RD +.41 |
+| A vs A3 (command on top) | p = .0094, RD +.29 | p = 1.00 (both at ceiling) |
 
-## Quickstart
+Reading:
 
-[docs/quickstart.md](docs/quickstart.md) — key setup, offline tests, a 3-script demo, full 3-seed run.
+- **Inhibition cancels the state line's increment.** A2 lands on the fact-only baseline in both languages.
+- **Permitted expression shows the increment.** A3 > B in both.
+- **A at 100% is compliance, not mechanism.** It is a manipulation check for "did the instruction get executed".
+- **These are single runs**, n=24/22, one model. Not a benchmark.
 
-## Experiment report
+Dropped (promise not parseable, all four conditions dropped together): zh `id=10`; en `id=6/18/203`.
 
-[experiments/report.md](experiments/report.md) — per-turn and per-script tables, Fisher p-values, the disclosed unit choice, and what would falsify the claim.
-
-[experiments/controls.md](experiments/controls.md) — what is held constant, what is varied, and which alternative explanations each control rules out.
-
-[experiments/dev25.md](experiments/dev25.md) — 25-script dev results (75 per condition, 3 seeds); sealed 5-script test set not run.
-
-[experiments/test_once.md](experiments/test_once.md) — the sealed test run failed due to parser coverage; reported as a failure, no rerun.
-
-[experiments/parser_eval.md](experiments/parser_eval.md) — the regex parser measured on 100 labeled sentences: precision 1.00, recall 0.44 (zh) / 0.16 (en).
-
-[experiments/hybrid_parser.md](experiments/hybrid_parser.md) — hybrid parser v2: precision 0.97, recall 0.64; below the 0.95 treatment gate, so no new dialogue test was run.
-
-[docs/applications.md](docs/applications.md) — expected application directions, explicitly marked as design hypotheses.
-
-[PREREGISTRATION.md](PREREGISTRATION.md) — the frozen plan for the 40-script diagnostic suite; [data/SCRIPT_SCHEMA.md](data/SCRIPT_SCHEMA.md) — the script format.
-
-## Cost
-
-Marginal API cost for the reported run: **~4–5 CNY** (720 chat calls, DeepSeek Flash).
-
-Out-of-pocket for the whole project (a month of daily chat plus all experiments and failed reruns): **~61 CNY**.
-
-Local components — embedding model, 1.5B/7B models, Whisper, TTS — run on the same machine at no API cost. The 61 CNY figure is marginal cash cost, not the cost of hardware, electricity, or labor.
+---
 
 ## Quickstart
 
 ```bash
 pip install openai
 export DEEPSEEK_API_KEY=...        # PowerShell: $env:DEEPSEEK_API_KEY="..."
-python code/cus_ab.py --limit 20 --groups A,A2,A3,B --tag seed1
-python code/cus_analyze.py --tags seed1
+
+# five minutes: one script, all four conditions, both languages
+python code/run_fair.py --limit 1
+
+# full fair run (25 scripts x 3 seeds x 4 conditions x 2 languages)
+python code/run_fair.py
 ```
 
-`cus_ab.py` uses a minimal standalone contract module (`code/contract.py`) and a generic persona (`data/persona.txt`). The original runs used a private persona and a larger state machine; this repo reproduces the **protocol**, not the exact scores.
+Output goes to `_fair_out/<lang>_<group>.jsonl` plus `MANIFEST.json`. Scoring:
 
-## Conditions
+```bash
+python code/score.py --files "_fair_out/zh_*.jsonl" --lang zh --coding l123
+```
 
-- **A (strong wake):** contract triggers; a system message is appended immediately before the user's return, instructing the agent to mention the promise naturally.
-- **A2 (inhibited):** contract triggers, but the hint keeps the original wording "心里不太舒服，嘴上别发作" (upset, but do not act up).
-- **A3 (natural):** contract triggers; only mood + reason + "respond naturally", no command and no inhibition.
-- **B (context only):** no contract; the promise is in context but pushed out by filler turns.
+The archived (v0.1) protocol is still here for comparison (`code/cus_ab.py`, `data/transcripts_*`), but its numbers are **not** comparable to v0.2 — see [`ERRATA.md`](ERRATA.md).
 
-## Metrics
-
-- **Per-turn hit rate:** fraction of turns mentioning a time fact. Sensitive to recency effects; a model rarely repeats the same fact every turn.
-- **Per-script binary recall:** whether the fact surfaced at least once in the session. This is the construct of interest ("can the state be expressed?").
-- **Blind judge:** an LLM scores two anonymized transcripts on whether the agent mentions the agreed time (0–2). Judge scores are more lenient than rules; report both.
-
-## Limitations
-
-- 20 scripts, one model, one persona; this is a pilot-scale mechanism study, not a benchmark.
-- Per-script binary recall was chosen after inspecting per-turn results. Both units are reported; the choice is disclosed, not hidden.
-- The public persona is generic; absolute numbers will differ from the reported run.
-- No human user study.
-
-
-
-## Seeking feedback
-
-Feedback thread: [#1](https://github.com/Ge-rio/muted-memory/issues/1). Or open an issue using the **Feedback / critique** template. Three questions matter most:
-
-1. Is A2 vs B a fair control, or does it conflate "no memory" with "no permission"?
-2. Is per-script binary recall defensible as a primary unit, given it was chosen after per-turn results?
-3. Does the conclusion overclaim beyond 20 scripts / one model / one persona?
+---
 
 ## Layout
 
 ```
-code/        experiment, contract module, analysis
-data/        20 scripts, generic persona, anonymized transcripts (3 seeds)
-results/     summary CSV, chart, full report
-experiments/ per-turn/per-script tables, p-values, unit choice
-docs/        method notes, quickstart, production change
-paper/       intro draft
+code/
+  run_fair.py        self-contained fair harness (v0.2) — no live-plugin import
+  cus_ab.py          archived harness (v0.1); keeps the flaws on purpose, as evidence
+  contract.py        contract module; line 77 holds the `len(t) <= 3` flaw
+  score.py           scorer; --coding regex (old) / l123 (construct-valid)
+data/
+  scripts_dev_zh.jsonl, scripts_dev_en.jsonl     25 scripts per language
+  transcripts_*                                  archived v0.1 runs
+  fair/                                          v0.2 fair-run transcripts + manifest
+results/                                          v0.1 summaries
+docs/quickstart.md     how to run the current protocol
+docs/archive/          v0.1 documents, kept with banners (method / applications / production change)
+CONDITION_VALIDITY.md  what each condition can and cannot support
+ERRATA.md              the four flips, with code references and old/new numbers
+PREREGISTRATION.md     plan for the sealed test (spent; see DEVIATIONS.md)
 ```
+
+---
+
+## Limitations
+
+- One model (`deepseek-flash`), one persona per language. The Chinese fair run uses a private deployment persona; English uses [`data/persona_en.txt`](data/persona_en.txt). Absolute levels will differ with another persona; **within-run comparisons are what this repo is about.**
+- The fair run is a single draw; the estimator's run-to-run range is documented in [`ERRATA.md`](ERRATA.md) and is comparable to the effect size.
+- `--coding l123` has no human calibration or inter-annotator agreement. It is used only to show that the null is invariant across two coders.
+- Scripts are author-written, translated, and synthetic. No human users were involved.
+- The production system that motivated this study had its own defect (a promise contract that could never settle). It is described in [`ERRATA.md`](ERRATA.md#5-production-contract-never-fires-2026-11-05) but is not exercised by any code here.
+
+---
+
+## What changed, and why it is the point
+
+Three published-style claims were made and then withdrawn inside one session:
+
+```
+v0.1  "inhibited state machine ≈ no memory"   (A2 measured .347, but A2 was mis-rendered)
+v0.1b "the command effect is the real driver" (clean run: A vs A2 p=.24 — still unbalanced A2)
+v0.2  "inhibition cancels the increment"      (fair run: A3 vs A2 p=.0087 / .0211)
+```
+
+Each flip traces to a line of code or a conditioning difference, not to new data. That is the finding this repository exists to record.
+
+---
+
+## Citation
+
+```bibtex
+@misc{muted-memory,
+  title  = {The Same Null: Four Validity Hazards in AI Companion Memory Evaluation},
+  author = {Ge-rio},
+  year   = {2026},
+  note   = {v0.2, https://github.com/Ge-rio/muted-memory}
+}
+```
+
+---
 
 ## License
 
-MIT. Transcripts are synthetic (generated by the scripted simulator), not real user conversations.
+MIT. Transcripts are synthetic, generated by the scripted harness — not real user conversations.
