@@ -161,3 +161,22 @@ candidates
   ↓ valid
 Also report pre-filter regex-parse rate, so "coverage 1.00" is not tautological.
 ```
+
+
+## Condition validity and C (before Test 2)
+
+```
+A : fact + state + permission
+A2: fact + state + inhibition
+A3: fact + state + natural
+B : fact, no state hint  (NOT a no-memory baseline)
+C : no fact, no state    (true absence baseline)
+```
+
+Primary: A vs A2 (permission). Mechanism: A2 vs C (does inhibition collapse to true absence?). B is a reference, not the zero point.
+
+**B manipulation check**: after each B script, ask "他答应你几分钟？" and report the correct-answer rate. If B can answer, B is confirmed as fact-present; do not use it as "no memory".
+
+**Indicator anchor**: score against the promised duration (`contract.scan`), not `late_sec`; the model is not told the actual lateness.
+
+**Doc correction**: the archived B run had no filler; the promise remained in context. Do not describe B as "truncated" unless filler is actually implemented.

@@ -5,7 +5,7 @@ Conditions:
   A  : state machine + explicit "you must mention it" near generation point
   A2 : state machine + the inhibiting hint ("do not act up")
   A3 : state machine, natural injection (mood + reason + "respond naturally")
-  B  : no state machine; promise is in context but truncated after fillers
+  B  : no state machine; the promise is still in context (no filler in this harness)
 
 Usage:
   set DEEPSEEK_API_KEY=...
@@ -49,7 +49,8 @@ def chat(messages, system):
 
 def run_one(script, group):
     now = [1000.0]
-    messages = [{"role": "user", "content": script["promise"]},
+    first = "我去忙了" if group == "C" else script["promise"]
+    messages = [{"role": "user", "content": first},
                 {"role": "assistant", "content": "好"}]
     hint = ""
     mins = 10

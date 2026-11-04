@@ -23,13 +23,13 @@ Primary analysis: **25 scripted "promise → breach → return" conversations**,
 | **A** strong wake | state + explicit "you must mention it" near the generation point | **57.3%** |
 | **A3** natural | state + reason + "respond naturally" (no command, no inhibition) | 44.0% |
 | **A2** inhibited | state + the persona's "do not act up" | 34.7% |
-| **B** context only | no state; the promise is pushed out of the window | 22.7% |
+| **B** context only | no state hint; the promise is still in context (not a no-memory baseline) | 22.7% |
 
 - A vs A2: 43/75 vs 26/75, **p = 0.0085**, OR 2.53 (95% CI 1.31–4.90)
 - A vs B: 43/75 vs 17/75, **p < 0.0001**, OR 4.58 (2.26–9.31)
 - A2 vs B: 26/75 vs 17/75, p = 0.15, OR 1.81 (0.88–3.72) — **not significant; this is not evidence of equivalence**
 
-The inhibited state machine reproduces the "no benefit from a state machine" null pattern. The difference appears only when expression is permitted.
+The inhibited condition lands near B, but **B is not a no-fact baseline**: the promise remains in context, and B can often reproduce it. A2 vs B is therefore not a test of "muted = absent". See [CONDITION_VALIDITY.md](CONDITION_VALIDITY.md).
 
 ### Earlier 20-script pilot
 
