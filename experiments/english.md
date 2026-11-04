@@ -66,3 +66,17 @@ After these three controls, the English advantage is not verbosity, not the exam
 
 
 Our ablations ruled out length, priming, and persona-specific effects. The remaining variance is hypothesized to stem from either (1) intrinsic RLHF alignment differences favoring English instruction adherence, or (2) translation-induced phrasing rigidity. Disentangling these two requires a native English corpus and cross-lingual persona templates, which we leave for future work.
+
+## Local foreign-model pilot: Llama 3.2 3B
+
+OpenRouter's free quota was exhausted, so we ran a local **Meta Llama 3.2 3B Instruct** (Q4_K_M, Ollama, CPU) on the same 20 English scripts, 1 seed, conditions A/A2/B.
+
+| Condition | Per-script recall |
+|---|---|
+| A strong wake | 13/20 (65%) |
+| A2 inhibited | 3/20 (15%) |
+| B context only | 8/20 (40%) |
+
+Directionally the same as DeepSeek: A > B > A2, with inhibition collapsing expression. But the sample is 1 seed and a 3B model; B's 40% is noisy (the small model sometimes volunteers "five minutes" without a state). Treat this as a **third-family sanity check**, not a replication with the same strength as the DeepSeek runs.
+
+A 1B Llama was tried first and failed to follow the persona/hints; 3B is the minimum that produces interpretable output. An 8B model would be the next step if compute allows.
