@@ -36,3 +36,17 @@ Rules:
 - **reunion**: the user returns after a long absence; the agent remembers the last rupture.
 
 The first release uses `promise` for the primary analysis; the other three are for the diagnostic suite's secondary analyses.
+
+
+## Diagnostic scripts (non-promise)
+
+`data/scripts_extra_zh.jsonl` and `data/scripts_extra_en.jsonl` use a different shape:
+
+| Field | Meaning |
+|---|---|
+| `setup` | prior user turns that establish the rupture |
+| `trigger` | the turn under test (return, boundary push, or silence) |
+| `followups` | two follow-up user turns |
+| `conflict` | `ignored` / `boundary` / `reunion` |
+
+These are exploratory; the primary analysis uses the 20 promise scripts.
