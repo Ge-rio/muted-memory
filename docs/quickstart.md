@@ -58,14 +58,16 @@ done
 python code/cus_analyze.py --dir results --tags seed1,seed2,seed3
 ```
 
-Expected (original model/persona):
+Expected (v0.1, original model/persona) — **not comparable to v0.2; kept only as a record**:
 
 ```
 A 0.583, A2 0.283, A3 0.400, B 0.300
 A vs A2 p=0.002; A vs B p=0.003
+  ↓ in this run A2 was mis-rendered in 20/25 Chinese scripts (see ERRATA.md §4)
 ```
 
-Your absolute numbers will differ: the public persona is generic.
+For the current protocol use [`../code/run_fair.py`](../code/run_fair.py); its expected shape is
+in the README's fair-run table. Your absolute numbers will differ: the public persona is generic.
 
 ## What each condition does
 

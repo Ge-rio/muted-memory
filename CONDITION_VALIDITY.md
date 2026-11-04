@@ -77,3 +77,29 @@ B: relevance decay (turn 2 asks "刚看到消息", turn 3 asks "你还在吗")
 **Correct claim**: availability during scored turns was never measured; the probe itself is a window artifact. The stronger, observable confound is that a fixed `[-8:]` window makes **turn index collinear with visibility** across all conditions.
 
 See `PROBE_METHOD.md` for the fixed-window, two-probe design.
+
+---
+
+## Addendum (2026-11-05, v0.2): A2 was not inhibited in the archived runs
+
+Everything above assumes A2 actually received the inhibition wording. It did not, for most of
+the Chinese set:
+
+```
+code/contract.py:77   if any(w in t for w in EXCUSE_BAD) or len(t) <= 3:
+                      → escalated branch: "带刺地问他一句，别讲道理"
+
+Chinese return messages ≤ 3 chars: 20/25   ("回来了", "在吗", "来了", …)
+English return messages ≤ 3 chars:  0/25
+```
+
+So in the archived Chinese runs, **A2 was told to be prickly in 80% of scripts** — the opposite of
+inhibition — while English A2 was inhibited throughout. Any zh/en difference in A2 is confounded
+with this, and A2's own estimate is not interpretable as "suppression".
+
+The fair harness (`code/run_fair.py`) builds the state line itself and ignores this branch, so A2
+is inhibited in 24/24 Chinese scripts there. The resulting A2 figures (.29 zh / .73 en) are the
+first ones that correspond to the condition as named. See `ERRATA.md` §4.
+
+**Consequence for this document:** row "A2" above should be read as "A2 as *implemented* in v0.1",
+which is not the same condition as "A2 as *intended*".

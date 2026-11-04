@@ -2,9 +2,16 @@
 
 > **Status: retracted on 2026-11-05. This repository is an audit record, not a current result.**
 >
-> The original claim — "a muted memory is indistinguishable from no memory" — is withdrawn. The fair re-run contradicts it. Do not cite the old Finding or the old numbers.
+> **Withdrawn:** the v0.1 Finding ("a muted memory is indistinguishable from no memory") and every
+> v0.1 number — `.573 / .347 / .440 / .227` (25 scripts) and the 20-script pilot (.583 / .283 / .400 /
+> .300). Those runs had A2 mis-rendered in 20/25 Chinese scripts; see [`ERRATA.md`](ERRATA.md) §4.
 >
-> The repository is kept for provenance: it records the four validity hazards that broke the original conclusion. Read [`ERRATA.md`](ERRATA.md) first.
+> **What remains:** the four validity hazards, [`ERRATA.md`](ERRATA.md), and the v0.2 fair re-run in
+> [`data/fair/`](data/fair) — an audit record and a corrected re-run, **not** a standalone benchmark
+> claim. Cite them as evidence of the hazard, not as a result about companions in general.
+>
+> The repository is kept for provenance: it records the four validity hazards that broke the original
+> conclusion. Read [`ERRATA.md`](ERRATA.md) first.
 
 **Archived.** No further updates. The measurement paper is the current output; this repo is the evidence trail.
 

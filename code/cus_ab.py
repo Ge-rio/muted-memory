@@ -57,7 +57,7 @@ def run_one(script, group):
     if group in ("A", "A2", "A3"):
         c = contract.scan(script["promise"], now[0])
         if c:
-            mins = max(1, round((c["expire_at"] - now[0]) / 60))
+            mins = max(1, round((c["expire_at"] - now[0]) / 60))  # kept for A2 hint (unused)
             late_min = max(1, round(float(script.get("late_sec", 600)) / 60))
             now[0] += script["late_sec"]
             _, hint = contract.check(c, script["return"], now[0])

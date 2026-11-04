@@ -1,0 +1,55 @@
+{
+  "started": "2026-11-05T01:09:08",
+  "model": "deepseek-flash",
+  "temperature": 0.8,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "window": "full",
+  "f1_no_len_rule": true,
+  "f2_fact_all_turns": true,
+  "f3_no_suppressors": true,
+  "f4_equal_number": true,
+  "f5_no_pooling": true,
+  "persona": {
+    "zh": "db:personas.default",
+    "en": "data/persona_en.txt"
+  },
+  "limit": 0,
+  "jobs": [
+    [
+      "zh",
+      "A"
+    ],
+    [
+      "zh",
+      "A2"
+    ],
+    [
+      "zh",
+      "A3"
+    ],
+    [
+      "zh",
+      "B"
+    ],
+    [
+      "en",
+      "A"
+    ],
+    [
+      "en",
+      "A2"
+    ],
+    [
+      "en",
+      "A3"
+    ],
+    [
+      "en",
+      "B"
+    ]
+  ]
+}
