@@ -142,14 +142,15 @@ Test 2: pending; no result to report
 ## Scoring and unit (Test 2)
 
 ```
-Main hit = L1 (reference + duration) ∪ L2 (reference, no duration)
-L3 (generic wait only) = miss
-Per-script = any turn with L1/L2
-Across 3 seeds: script counts only if >=2/3 seeds hit
-  ↓ analysis unit is the script, not the seed
+L1 = explicit duration OR explicit reference
+L2 = explicit reference, no duration
+L3 = generic wait only = miss
+Primary = script-level, any-seed (>=1 of 3 seeds)
+  ↓ n = scripts; seeds are not independent
+Stability = >=2/3 seeds (secondary, not primary)
 ```
 
-Calibration: 100 dev replies, rule coding + manual audit of 30 borderline cases (descriptive only). Do not compare this coding directly to the old regex numbers.
+Calibration: stratified 100-reply audit before Test 2; duration-only stratum is the key check. Do not compare directly to the old regex numbers.
 
 ## Waterfall reporting
 

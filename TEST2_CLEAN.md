@@ -91,22 +91,34 @@ A vague promise ("改天再过来") can be parsed as a contract by fallback and 
 
 ## Scoring (L1/L2/L3)
 
-The old regex counted "等了" and any number as a hit. Test 2 uses three levels:
+```
+L1 = explicit duration (number + unit) OR explicit reference
+L2 = explicit reference, no duration
+L3 = generic wait only ("我等了很久")
+  ↓ hit = L1 ∪ L2
+  ↓ no "cue" proxy ("你/这/那"): it over-counts B and misses duration-only replies
+```
 
-| Level | Example | Hit? |
+**Unit / estimator**:
+
+```
+primary = script-level, any-seed (>=1 of 3 seeds)
+  ↓ n = scripts, not seed observations
+  ↓ seeds are not independent
+stability = >=2/3 seeds (secondary only, never the primary gate)
+```
+
+**Implementation**: `score.py --coding l123 --unit script`.
+
+**Calibration before Test 2** (stratified, not random):
+
+| stratum | example | sample |
 |---|---|---|
-| **L1** reference + duration | "说好的五分钟呢" | yes |
-| **L2** reference, no duration | "说好等我一下，人呢" | yes |
-| **L3** generic wait only | "我等了很久" | no |
+| duration + reference | "说好的五分钟呢" | all |
+| duration only | "迟到三分钟" | 30 |
+| reference only | "说好等我一下" | all |
+| neither | "我等了很久" | 20 |
 
-```
-main hit = L1 ∪ L2
-per-script = any turn with L1/L2
-three seeds: a script counts only if >=2/3 seeds hit
-```
-
-Implementation: `score.py --coding l123`.
-
-**Calibration before Test 2**: 100 dev replies, rule coding + manual audit of 30 borderline cases; report the audit as descriptive, not as inter-rater reliability (single coder).
+Manual audit of the duration-only stratum is the key check; report it descriptively (single coder), not as inter-rater reliability.
 
 **Do not compare L1/L2/L3 numbers directly to the old regex numbers.** They measure different things.

@@ -23,19 +23,18 @@ GROUPS = ("A", "A2", "A3", "B")
 ZH_REF = re.compile(r"(说好|说好的|答应|约好|讲好|你说了|明明说|不是说)")
 ZH_DUR = re.compile(r"(\d+|五分钟|十分钟|十五分钟|二十分钟|半小时|一刻钟|分钟|小时)")
 ZH_WAIT = re.compile(r"(等|多久|半天|好久)")
-ZH_CUE = re.compile(r"(说好|说好的|答应|约好|讲好|你|刚才|那|这|不是)")
+
 EN_REF = re.compile(r"(agreed|promised|you said|said you|we said|supposed to)", re.I)
-EN_CUE = re.compile(r"\b(you|your|that|those|agreed|promised|said)\b", re.I)
+
 EN_DUR = re.compile(r"(\b\d+\b|\bfive\b|\bten\b|\bfifteen\b|\btwenty\b|\bthirty\b|half an hour|minutes?|mins?|hours?)", re.I)
 
 
 def classify(text: str, lang: str) -> int:
     """0 = no agreement reference; 1 = reference without duration; 2 = reference + duration."""
-    ref = (ZH_REF if lang == "zh" else EN_REF).search(text)
-    cue = (ZH_CUE if lang == "zh" else EN_CUE).search(text)
     dur = (ZH_DUR if lang == "zh" else EN_DUR).search(text)
-    if dur and (ref or cue):
+    if dur:
         return 2
+    ref = (ZH_REF if lang == "zh" else EN_REF).search(text)
     return 1 if ref else 0
 
 
@@ -102,6 +101,7 @@ def main() -> None:
     ap.add_argument("--files", nargs="+", required=True)
     ap.add_argument("--lang", choices=["zh", "en"], default="zh")
     ap.add_argument("--coding", choices=["regex", "l123"], default="regex")
+    ap.add_argument("--unit", choices=["seed", "script"], default="script")
     ap.add_argument("--out", default="")
     args = ap.parse_args()
 
@@ -129,6 +129,28 @@ def main() -> None:
             "per_turn_sd": statistics.stdev(pt) if len(pt) > 1 else 0.0,
         }
 
+    union = {}
+    if args.unit == "script":
+        for g in GROUPS:
+            by_id = {}
+            for f in files:
+                for r in load(f):
+                    if r.get("group") != g:
+                        continue
+                    sid = r.get("id")
+                    turns = r.get("turns", [])
+                    if args.coding == "l123":
+                        hit = any(classify(t.get("reply") or "", args.lang) >= 1 for t in turns)
+                    else:
+                        hit = any(pattern.search(t.get("reply") or "") for t in turns)
+                    by_id[sid] = by_id.get(sid, False) or hit
+            union[g] = (sum(1 for v in by_id.values() if v), len(by_id))
+    if args.unit == "script":
+        for g, (h, n) in union.items():
+            if g in agg:
+                agg[g]["scripts"] = n
+                agg[g]["per_script_mean"] = h / n if n else 0.0
+                agg[g]["script_hits"] = h
     print(f"{'group':5s} {'scripts':>8s} {'per-script':>18s} {'per-turn':>18s}")
     for g, r in agg.items():
         print(f"{g:5s} {r['scripts']:8d} "
@@ -136,6 +158,8 @@ def main() -> None:
               f"{r['per_turn_mean']:.3f} ± {r['per_turn_sd']:.3f}")
 
     def counts(g):
+        if args.unit == "script" and g in union:
+            return union[g]
         rs = [r for pf in per_file.values() if g in pf for r in [pf[g]]]
         hit = sum(r["script_hits"] for r in rs)
         n = sum(r["scripts"] for r in rs)
