@@ -119,7 +119,7 @@ python code/cus_analyze.py --tags seed1
 
 ## Seeking feedback
 
-Open an issue using the **Feedback / critique** template. Three questions matter most:
+Feedback thread: [#1](https://github.com/Ge-rio/muted-memory/issues/1). Or open an issue using the **Feedback / critique** template. Three questions matter most:
 
 1. Is A2 vs B a fair control, or does it conflate "no memory" with "no permission"?
 2. Is per-script binary recall defensible as a primary unit, given it was chosen after per-turn results?
