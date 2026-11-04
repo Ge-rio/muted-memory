@@ -8,7 +8,7 @@
 
 [![Feedback](https://img.shields.io/badge/feedback-issue%20%231-blue)](https://github.com/Ge-rio/muted-memory/issues/1)
 
-A small, reproducible study of why external state machines for AI companions can look useless: the state may be triggered, but the persona prompt can forbid its expression. Observationally, a muted memory is indistinguishable from no memory.
+A small, reproducible study of why external state machines for AI companions can look useless: the state may be triggered, but the persona prompt can forbid its expression. Observationally, a muted memory can look indistinguishable from no memory.
 
 **Keywords:** AI companion, long-term memory, state machine, prompt suppression, memory continuity, LLM agents, evaluation, benchmark, role-play, emotional continuity.
 

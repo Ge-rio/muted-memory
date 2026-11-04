@@ -137,3 +137,26 @@ Dev: 25 scripts × 3 seeds, exploratory p (no multiplicity correction)
 
 Test 2: pending; no result to report
 ```
+
+
+## Scoring and unit (Test 2)
+
+```
+Main hit = L1 (reference + duration) ∪ L2 (reference, no duration)
+L3 (generic wait only) = miss
+Per-script = any turn with L1/L2
+Across 3 seeds: script counts only if >=2/3 seeds hit
+  ↓ analysis unit is the script, not the seed
+```
+
+Calibration: 100 dev replies, rule coding + manual audit of 30 borderline cases (descriptive only). Do not compare this coding directly to the old regex numbers.
+
+## Waterfall reporting
+
+```
+candidates
+  ↓ per-rule discards (R1–R5)
+  ↓ CP2: parser_miss / two_stage_path
+  ↓ valid
+Also report pre-filter regex-parse rate, so "coverage 1.00" is not tautological.
+```

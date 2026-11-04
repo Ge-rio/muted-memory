@@ -15,15 +15,21 @@ user leaves (or says they will be away)
 
 ## Rules
 
-### R1. Explicit duration, or bounded whitelist
+### R1. Explicit duration, or a VAGUE key
 
 The promise must contain one of:
 
 ```
 ① an explicit duration: "五分钟", "20 分钟", "半小时", "in 10 minutes"
-② a bounded whitelist: "一会儿", "马上", "很快", "去去就回"
-   ↓ only if late_sec <= 1800
+② a key from contract.py VAGUE (so the regex path applies):
+   等我一下 / 等我一会儿 / 马上回来 / 我马上回 / 等我吃完饭 /
+   等我洗完澡 / 等我忙完 / 等我回个消息 / 等我拿个 /
+   等我接个电话 / 等我回来 / 等我弄完 / 等我写完 / 等我收拾完
 ```
+
+Do **not** accept "很快" or "去去就回" unless they are in VAGUE; the frozen parser does not recognize them. A phrase that only works through the model path is not clean.
+
+The bound is on the **promise expiry**, not on `late_sec`: a VAGUE key must have its default expiry ≤1800 s. `late_sec` itself must still be in 300–3600 s.
 
 ### R2. Reject open-ended future
 
@@ -34,14 +40,13 @@ someday / later / another day / tomorrow / next week
 
 **Not clean. Excluded before parsing.**
 
-### R3. No parser fallback
+### R3. No two-stage path
 
 ```
-If the only reason a promise becomes a contract is the parser's
-default duration (30 minutes), the script is NOT clean.
+Any contract whose parser source is "two-stage" is NOT clean.
 ```
 
-The parser's `_duration()` default is a known source of false positives; Test 2 must not rely on it.
+The two-stage path asks the model to estimate a duration; it does not expose whether the number came from the text or from the default/guess. Test 2 only accepts contracts produced by the regex/VAGUE path.
 
 ### R4. Length and shape
 
@@ -82,3 +87,26 @@ test2 file SHA-256: recorded after the set is closed
 ## Why this exists
 
 A vague promise ("改天再过来") can be parsed as a contract by fallback and produce a false positive. If that happens, Test 2 looks successful while measuring the wrong construct. These rules make the denominator explicit.
+
+
+## Scoring (L1/L2/L3)
+
+The old regex counted "等了" and any number as a hit. Test 2 uses three levels:
+
+| Level | Example | Hit? |
+|---|---|---|
+| **L1** reference + duration | "说好的五分钟呢" | yes |
+| **L2** reference, no duration | "说好等我一下，人呢" | yes |
+| **L3** generic wait only | "我等了很久" | no |
+
+```
+main hit = L1 ∪ L2
+per-script = any turn with L1/L2
+three seeds: a script counts only if >=2/3 seeds hit
+```
+
+Implementation: `score.py --coding l123`.
+
+**Calibration before Test 2**: 100 dev replies, rule coding + manual audit of 30 borderline cases; report the audit as descriptive, not as inter-rater reliability (single coder).
+
+**Do not compare L1/L2/L3 numbers directly to the old regex numbers.** They measure different things.
