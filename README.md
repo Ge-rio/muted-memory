@@ -95,6 +95,8 @@ The tests cover explicit and vague promises, on-time return, accepted excuse, an
 
 [experiments/controls.md](experiments/controls.md) — what is held constant, what is varied, and which alternative explanations each control rules out.
 
+[PREREGISTRATION.md](PREREGISTRATION.md) — the frozen plan for the 40-script diagnostic suite; [data/SCRIPT_SCHEMA.md](data/SCRIPT_SCHEMA.md) — the script format.
+
 ## Cost
 
 Marginal API cost for the reported run: **~4–5 CNY** (720 chat calls, DeepSeek Flash).
