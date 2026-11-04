@@ -1,6 +1,6 @@
 # Condition validity: A / A2 / A3 / B / C
 
-> Evidence: public `cus_ab.py` has no filler; B starts with the promise and `messages[-8:]` never truncates it. B transcripts often reproduce the exact promised value ("五分钟", "十分钟", "半小时"). Therefore **B is "fact present, no state hint"**, not "no memory".
+> Evidence: public `cus_ab.py` has no filler; B starts with the promise. Whether B can still access it after several turns has **not** been measured; exact mentions in early replies are consistent with access but also with idiom/relevance. B is therefore **"fact in the initial context, no state hint"**, not a stable fact-present baseline and not "no memory".
 
 ## Table
 
@@ -9,15 +9,15 @@
 | **A** | yes | yes | yes (explicit) | A vs A2 (permission) | "state vs no state" alone |
 | **A2** | yes | yes | no (inhibited) | suppression effect | "muted = no memory" |
 | **A3** | yes | yes | natural (no command) | intermediate dose-response | "no state" |
-| **B** | **yes** | no | n/a | fact available but unprompted; reference | "no memory"; cannot be the zero point for A2 |
+| **B** | yes (initial) | no | n/a | fact available early; reference | "no memory"; stable zero point for A2 |
 | **C** | **no** | no | n/a | true absence baseline; A2 vs C tests "muted ≈ absent" | permission effect alone |
 
 ## What this breaks
 
 ```
 A vs A2: still valid (the permission manipulation)
-A vs B: no longer "state machine vs no state" — B knows the fact
-A2 vs B: cannot be read as "muted ≈ absent"
+A vs B: no longer "state machine vs no state" — B has the fact in its initial context
+A2 vs B: cannot yet be read as "muted ≈ absent" (B access unmeasured)
   ↓ need A2 vs C
 ```
 
