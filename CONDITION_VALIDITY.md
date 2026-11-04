@@ -1,6 +1,6 @@
 # Condition validity: A / A2 / A3 / B / C
 
-> Evidence: public `cus_ab.py` has no filler; B starts with the promise. Whether B can still access it after several turns has **not** been measured; exact mentions in early replies are consistent with access but also with idiom/relevance. B is therefore **"fact in the initial context, no state hint"**, not a stable fact-present baseline and not "no memory".
+> Evidence: the dev25 harness (`D:\11\cus_ab.py`) has no filler; B's scored turns have 3, 5, and 7 messages, all within `[-8:]`, so the promise is visible at every scored turn. The probe is the 9th message and is the only thing truncated. **B is fact-present at all scored turns, with no state hint.**
 
 ## Table
 
@@ -9,15 +9,15 @@
 | **A** | yes | yes | yes (explicit) | A vs A2 (permission) | "state vs no state" alone |
 | **A2** | yes | yes | no (inhibited) | suppression effect | "muted = no memory" |
 | **A3** | yes | yes | natural (no command) | intermediate dose-response | "no state" |
-| **B** | yes (initial) | no | n/a | fact available early; reference | "no memory"; stable zero point for A2 |
+| **B** | yes (all scored turns) | no | n/a | fact-only baseline; A2 vs B = incremental state contribution | "no memory"; "muted = no fact" |
 | **C** | **no** | no | n/a | true absence baseline; A2 vs C tests "muted ≈ absent" | permission effect alone |
 
 ## What this breaks
 
 ```
 A vs A2: still valid (the permission manipulation)
-A vs B: no longer "state machine vs no state" — B has the fact in its initial context
-A2 vs B: cannot yet be read as "muted ≈ absent" (B access unmeasured)
+A vs B: not "state vs no state" — B has the fact, so this is "state + permission vs fact only"
+A2 vs B: can be read as incremental state contribution; a null means the state adds nothing observable, but equivalence is not tested
   ↓ need A2 vs C
 ```
 

@@ -26,3 +26,20 @@ Changes after `PREREGISTRATION.md` was frozen are recorded here.
 - Result: A 2/15 vs A2 1/15 (zh), A 2/15 vs B 5/15 (en); no significant difference.
 - The test set is spent. No parser fix followed by a rerun on the same set.
 - A v2 suite requires a parser-coverage check and a new sealed set.
+
+
+## 2026-11-05: state-line time-label bug (A/A3)
+
+In the archived harness, `mins` was the **promised** duration, but the A state line labeled it as lateness ("他迟到了约 {mins} 分钟"), and A3 read as on-time ("他说好「...」，等了约 {mins} 分钟"). `late_sec` was only used to advance the clock.
+
+Fixed in `code/cus_ab.py`: `late_min = round(late_sec/60)`; A and A3 now state the actual lateness while keeping the promise text.
+
+Recheck (25 zh scripts × 3 seeds, A2/A3 only, L123 script-level):
+
+```
+A2: 16/25 (.64)
+A3: 21/25 (.84)
+A3 vs A2: p=.196
+```
+
+A2 also shifted from .44 to .64 across runs; the change is not attributable to the fix alone. A3 vs A2 remains non-significant at n=25. Old A/A3 numbers are affected by the label bug and should not be compared directly to the fixed runs.

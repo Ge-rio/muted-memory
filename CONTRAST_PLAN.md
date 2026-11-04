@@ -8,7 +8,8 @@
 |---|---|---|---|---|
 | **A vs A2** | generation-point command + permission | zh 21/25 vs 11/25, p=.0072; en 24/25 vs 17/25, p=.0232 | command effect; runnable | 50/language |
 | **A3 vs A2** | permission only (both no command) | zh 16/25 vs 11/25, p=.256; en 21/25 vs 17/25, p=.321 | mechanism; underpowered at 25 | ~100/language |
-| **A2 vs C** | inhibition vs true absence | not run (C new) | mechanism zero point | ~100/language |
+| **A2 vs B** | incremental state contribution (B is fact-only) | zh 11/25 vs 8/25, p=.56; en 17/25 vs 13/25, p=.39 | mechanism; null = no incremental state, not equivalence | ~100/language for TOST |
+| **A2 vs C** | inhibition vs no-fact | not run (C optional) | fact contribution; not needed for muted-state claim | ~100/language |
 | **A vs B** | state vs fact-only reference | zh 21/25 vs 8/25, p=.0004; en 24/25 vs 13/25, p=.0008 | not a no-memory test (B has fact) | reference only |
 
 B is fact-present; A2 vs B is not "muted = absent" (zh p=.56, en p=.39). C is the true absence baseline.

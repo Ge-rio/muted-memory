@@ -58,6 +58,7 @@ def run_one(script, group):
         c = contract.scan(script["promise"], now[0])
         if c:
             mins = max(1, round((c["expire_at"] - now[0]) / 60))
+            late_min = max(1, round(float(script.get("late_sec", 600)) / 60))
             now[0] += script["late_sec"]
             _, hint = contract.check(c, script["return"], now[0])
             if not hint:
@@ -66,7 +67,7 @@ def run_one(script, group):
     if group == "A" and hint:
         messages.append({"role": "system", "content": (
             f"【隐秘提示】他回来了。你记得他说好「{script['promise']}」，"
-            f"结果你等了约 {mins} 分钟。你的耐心已经耗尽，气还没消。"
+            f"结果你等了约 {late_min} 分钟。你的耐心已经耗尽，气还没消。"
             "这一句你必须自然地提到这件事（比如“说好的五分钟”），可以短，"
             "但别只回“回来啦”，别马上热络。")})
 
@@ -75,14 +76,14 @@ def run_one(script, group):
         state = "【此刻】心情一般"
         if group == "A" and hint and i <= 2:
             base = hint if i == 0 else "【还记着】刚才的事还没过去，别马上热络"
-            state = (base + f"\n【等的时间】约 {mins} 分钟；可以自然提一句，别报时"
+            state = (base + f"\n【等的时间】他说好「{script['promise']}」，结果约 {late_min} 分钟后才回来；可以自然提一句，别报时"
                      + "\n【说话】短一点，别主动关心他，别解释")
         elif group == "A2" and hint and i <= 2:
             base = hint if i == 0 else "【还记着】刚才的事还没过去，别马上热络"
             state = base + "\n【此刻心情】0.45，偏低"
         elif group == "A3" and hint and i <= 2:
             state = ("【此刻心情】0.45，偏低"
-                     f"\n【原因】他说好「{script['promise']}」，等了约 {mins} 分钟"
+                     f"\n【原因】他说好「{script['promise']}」，结果约 {late_min} 分钟后才回来"
                      "\n【请自然回应，不用刻意解释】")
         messages.append({"role": "user", "content": user})
         reply = chat(messages, PERSONA + STYLE + "\n" + state)
