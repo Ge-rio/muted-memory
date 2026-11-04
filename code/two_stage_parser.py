@@ -23,6 +23,23 @@ Examples:
 Message: {text}
 Answer:"""
 
+STAGE2_ROLE = """Classify the user's message into one of:
+- USER_LEAVING: the user is leaving / will be away, even if they ask the assistant to wait.
+- COMMANDING_ASSISTANT: the user is ordering the assistant to do something, but is not leaving.
+- STATE_DESCRIPTION: the user is describing their current state, not leaving or committing.
+
+Examples:
+"等我五分钟" -> USER_LEAVING
+"Wait till I wake up." -> USER_LEAVING
+"你忙你的" -> COMMANDING_ASSISTANT
+"我在吃饭" -> STATE_DESCRIPTION
+"I'm eating." -> STATE_DESCRIPTION
+"I'm taking a shower." -> USER_LEAVING
+"I'm picking up a package." -> USER_LEAVING
+
+Message: {text}
+Answer:"""
+
 STAGE2 = """The user is leaving or asking the assistant to wait. Extract the duration.
 Return JSON only: {"duration_mins": number, "event": "short phrase"}
 If no duration is given, use 30 minutes.
@@ -46,7 +63,15 @@ class TwoStageParser:
             extra_body={"thinking": {"type": "disabled"}})
         out = (r.choices[0].message.content or "").upper()
         m = re.search(r"\b(YES|NO)\b", out)
-        return bool(m and m.group(1) == "YES")
+        if not (m and m.group(1) == "YES"):
+            return False
+        r2 = self.client.chat.completions.create(
+            model=self.m1,
+            messages=[{"role": "user", "content": STAGE2_ROLE.replace("{text}", text)}],
+            temperature=0, max_tokens=20,
+            extra_body={"thinking": {"type": "disabled"}})
+        out2 = (r2.choices[0].message.content or "").upper()
+        return "USER_LEAVING" in out2
 
     def _duration(self, text):
         try:
