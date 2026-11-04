@@ -91,6 +91,28 @@ python -m pytest code/test_contract.py -q
 
 The tests cover explicit and vague promises, on-time return, accepted excuse, and the inhibiting hint used as condition A2.
 
+## What this is — and what it is not
+
+This repository is two things:
+
+1. **A diagnostic protocol.** A small set of scripts and gates for checking whether an AI companion's memory is actually *expressed*, not merely stored. The core finding is that a triggered state can be rendered unobservable by a persona constraint.
+2. **A reference implementation.** The scripts and prompts show one way to separate state from expression: contract extraction, a two-stage role parser, a permutation over four conditions, and fact-anchored scoring.
+
+It is **not**:
+
+- a validated benchmark (no human study, one model family for most results);
+- a companion platform or a product;
+- a therapy or crisis tool.
+
+## Future applications (hypotheses, not claims)
+
+- **Expression audit for companion teams.** Before adding more memory, check whether the prompt forbids expression. The DCE gates are a cheap first pass.
+- **Agent architecture.** Treat expression permission as a first-class config; measure per-script recall, not only per-turn.
+- **Companion design.** A2.5 ("half-said, then withdrawn") is a design hypothesis derived from A2; it has not been tested.
+- **Embodied mapping.** Mapping system telemetry to expression constraints is reusable; it is not a new sensing modality.
+
+Details and caveats: [docs/applications.md](docs/applications.md).
+
 ## Quickstart
 
 [docs/quickstart.md](docs/quickstart.md) — key setup, offline tests, a 3-script demo, full 3-seed run.
