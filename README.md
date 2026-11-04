@@ -1,10 +1,16 @@
 # Muted Memory
 
+**AI companion memory continuity, state machines, and prompt suppression.**
+
 [![Feedback](https://img.shields.io/badge/feedback-issue%20%231-blue)](https://github.com/Ge-rio/muted-memory/issues/1)
 
 **She did not forget. She was told not to say it.**
 
 A small, reproducible study of why external state machines for AI companions can look useless: the state may be triggered, but the persona prompt can forbid its expression. Observationally, a muted memory is indistinguishable from no memory.
+
+**Keywords:** AI companion, long-term memory, state machine, prompt suppression, memory continuity, LLM agents, evaluation, benchmark, role-play, emotional continuity.
+
+**中文关键词：** AI 陪伴、长期记忆、状态机、提示词抑制、记忆连续性、情感连续、评测基准、角色扮演。
 
 ## Finding
 
